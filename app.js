@@ -70,6 +70,7 @@ music_card.forEach((element) => {
   const music_name = element.children[1].children[0].children[0].innerText;
   const music_img = element.children[0].children[0];
   const wishlist_btn = element.children[1].children[1].children[0];
+  const wishlist_disslike = element.children[1].children[1].children[2];
 
   wishlist_btn.addEventListener("click", () => {
     let obj = {
@@ -81,9 +82,8 @@ music_card.forEach((element) => {
 
     if (wishlist_arr.find((x) => x.name == music_name) === undefined) {
       wishlist_arr.push(obj);
-    }
-
-    watchlistShow(wishlist_arr);
+      watchlistShow(wishlist_arr);
+    } 
   });
 });
 
