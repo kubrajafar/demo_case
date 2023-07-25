@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  position: relative;
+}
 li {
   list-style: none;
 }
@@ -71,6 +74,7 @@ header .container .header-container .nav-menu .left-items .navbar {
   background-color: rgba(255, 255, 255, 0.16);
   padding: 12px 20px;
   border: 0.87px solid rgba(15, 247, 240, 0.4);
+  z-index: 5;
 }
 
 header .container .header-container .nav-menu .left-items .navbar .nav-list {
@@ -96,7 +100,9 @@ header
   position: absolute;
   margin-left: 12px;
   border: 0.87px solid rgba(214, 134, 255, 0.4);
-  display: none;
+  opacity: 0;
+  z-index: -1;
+  transition: 0.5s;
 }
 header
   .container
@@ -107,7 +113,8 @@ header
   .nav-list
   .active-dropdown
   ul {
-  display: block;
+  opacity: 1;
+  z-index: -1;
 }
 
 header
@@ -162,6 +169,98 @@ header
   background-color: rgba(226, 77, 77, 1);
   border-radius: 50%;
 }
+header .container .header-container .nav-menu .right-items .watchlistBox {
+  width: 248px;
+  height: 218px;
+  border: 1px solid black;
+  border: 0.87px solid rgba(15, 247, 240, 0.2);
+  border-radius: 8px;
+  padding: 30px 10px 10px 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  position: absolute;
+  top: 74px;
+  right: 110px;
+  opacity: 0;
+  z-index: -1;
+  overflow: auto;
+  transition: 0.5s;
+}
+header
+  .container
+  .header-container
+  .nav-menu
+  .right-items
+  .watchlistBox
+  .watchlis-closeBtn {
+  width: 19px;
+  height: 19px;
+  border: 0.87px solid rgba(15, 247, 240, 0.6);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+  margin: 3px 3px 0 0;
+  z-index: 3;
+}
+header
+  .container
+  .header-container
+  .nav-menu
+  .right-items
+  .watchlistBox
+  .music_cardBox {
+  width: 100%;
+  height: 41px;
+  background-color: rgba(31, 31, 31, 1);
+  display: flex;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+header
+  .container
+  .header-container
+  .nav-menu
+  .right-items
+  .watchlistBox
+  .music_cardBox
+  .music_name {
+  font-size: 10px;
+  font-weight: 300;
+}
+header
+  .container
+  .header-container
+  .nav-menu
+  .right-items
+  .watchlistBox
+  .music_cardBox
+  .music_img {
+  width: 70px;
+  height: 41px;
+  height: auto;
+  border-radius: 3px;
+}
+header
+  .container
+  .header-container
+  .nav-menu
+  .right-items
+  .watchlistBox
+  .music_cardBox
+  .music_remove {
+  font-size: 10px;
+  position: absolute;
+  right: 7px;
+}
 /* music */
 
 header .container .header-container .header-music {
@@ -185,127 +284,34 @@ header .container .header-container .header-music i {
   border-radius: 50%;
 }
 
-/* sign in modal */
-header .signIn-modal {
-  max-width: 490px;
-  width: 100%;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.4);
-  padding: 20px 40px;
-  z-index: 1;
-  opacity: 0;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transform: translate(-50%, 0);
-  top: 20%;
-  left: 50%;
-  color: rgba(255, 255, 255, 1);
-}
-
-header .signIn-modal .close-btn {
-}
-header .signIn-modal .modal-contentBox {
-  font-weight: 400;
-}
-header .signIn-modal .modal-contentBox .content-text {
-  text-align: center;
-}
-header .signIn-modal .modal-contentBox .content-text h4 {
-  font-size: 25px;
-}
-
-header .signIn-modal .modal-contentBox .content-text p {
-  font-size: 16px;
-  margin: 25px 0 20px 0;
-}
-header .signIn-modal .modal-contentBox .modal-form form {
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-  gap: 10px;
-}
-header .signIn-modal .modal-contentBox .modal-form form input {
-  margin-bottom: 3px;
-  height: 52px;
-  background-color: rgba(13, 13, 13, 1);
-  padding-left: 10px;
-  border-radius: 8px;
-  border: 0.87px solid rgba(214, 133, 255, 1);
-}
-
-header .signIn-modal .modal-contentBox .forgot-pass {
-  font-size: 12px;
-  margin: 10px 0 20px 0;
-  margin-left: auto;
-}
-header .signIn-modal .modal-contentBox .form-buttonBox {
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
-header .signIn-modal .modal-contentBox .form-buttonBox .modal-signUp {
-  background-color: inherit;
-  border: none;
-  color: rgba(255, 255, 255, 1);
-}
-
-header .signIn-modal .modal-contentBox .form-buttonBox .modal-signIn {
-  background-color: rgba(255, 255, 255, 0.4);
-  border: 1px solid rgba(15, 247, 240, 0.4);
-  color: rgba(255, 255, 255, 1);
-  border-radius: 20px;
-  padding: 10px 40px;
-}
-
-header .signIn-modal .modal-contentBox .modal-footer {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  text-align: center;
-}
-
-body.active-modal {
-  overflow: hidden;
-}
-
-body.active-modal .signIn-modal {
-  top: 50%;
-  opacity: 1;
-  margin-top: 0px;
-}
 /* header end */
 
 /* music-section start */
 #music-section {
   width: 100%;
   background-color: #1f1f1f;
+  padding: 30px 0;
 }
 #music-section .container .music-container {
   width: 100%;
   position: relative;
-  padding: 30px 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
   margin-bottom: 30px;
+
 }
+
 #music-section .container .music-container .music-card {
-  width: 297px;
-  height: 212px;
+  width: 295px !important;
   border-radius: 8px;
   transition: 0.5s;
+
 }
 #music-section .container .music-container .music-card:hover {
+  width: 299px !important;
+  height: 320px;
   transform: scale(1.2);
-  height: 350px;
   background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
   border: 0.87px solid #0ff7f066;
-  z-index: 1;
+  z-index: 15 !important;
 }
 
 #music-section
@@ -319,6 +325,8 @@ body.active-modal .signIn-modal {
   justify-content: space-between;
   padding-top: 15px;
   transition: 0.5s;
+  display: flex;
+  align-items: center;
 }
 #music-section
   .container
@@ -330,6 +338,7 @@ body.active-modal .signIn-modal {
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.4px;
+  z-index: 2 !important;
 }
 #music-section
   .container
@@ -340,6 +349,16 @@ body.active-modal .signIn-modal {
   p {
   font-size: 12px;
   font-weight: 300;
+  display: none;
+}
+#music-section
+  .container
+  .music-container
+  .music-card:hover
+  .card-content
+  .card-content-about
+  p {
+  display: block;
 }
 #music-section
   .container
@@ -352,7 +371,7 @@ body.active-modal .signIn-modal {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 30px;
   gap: 10px;
   display: none;
 }
@@ -363,10 +382,151 @@ body.active-modal .signIn-modal {
   .card-content-iconBox {
   display: flex;
 }
+
+#music-section .container .music-container .slick-prev {
+  position: absolute;
+  top: 90px;
+  left: 60px;
+  z-index: 4;
+}
+#music-section .container .music-container .slick-prev::before {
+  content: "<";
+  font-family: "Courier New", Courier, monospace;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 25px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+#music-section .container .music-container .slick-next {
+  right: 60px;
+  position: absolute;
+  top: 90px;
+  z-index: 10;
+}
+#music-section .container .music-container .slick-next::before {
+  content: ">";
+  font-family: "Courier New", Courier, monospace;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 25px;
+  border-radius: 50%;
+  font-weight: bold;
+}
 /* music-section end */
 
+/* sign in modal */
+.signIn-modal {
+  max-width: 490px;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(171, 171, 171, 0.4);
+  padding: 20px 40px;
+  opacity: 0;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, 50%);
+  top: -20%;
+  left: 50%;
+  color: rgba(255, 255, 255, 1);
+  font-family: "Roboto", sans-serif;
+  z-index: -1;
+  transition: 1s;
+}
+main#main.active-modal {
+  filter: blur(2px);
+  pointer-events: none;
+  user-select: none;
+}
+.signIn-modal.active-modal {
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+}
+
+.signIn-modal .close-btn {
+  width: 43px;
+  height: 43px;
+  border: 0.87px solid rgba(15, 247, 240, 0.6);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+}
+.signIn-modal .modal-contentBox {
+  font-weight: 400;
+  transition: 1s;
+}
+.signIn-modal .modal-contentBox .content-text {
+  text-align: center;
+}
+.signIn-modal .modal-contentBox .content-text h4 {
+  font-size: 25px;
+}
+
+.signIn-modal .modal-contentBox .content-text p {
+  font-size: 16px;
+  margin: 25px 0 20px 0;
+}
+.signIn-modal .modal-contentBox .modal-form form {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 10px;
+}
+.signIn-modal .modal-contentBox .modal-form form input {
+  margin-bottom: 3px;
+  height: 52px;
+  background-color: rgba(13, 13, 13, 1);
+  padding-left: 10px;
+  border-radius: 8px;
+  border: 0.87px solid rgba(214, 133, 255, 1);
+}
+
+.signIn-modal .modal-contentBox .forgot-pass {
+  font-size: 12px;
+  margin-top: 10px;
+  margin-right: auto;
+  position: absolute;
+  right: 50px;
+  font-weight: 300;
+}
+.signIn-modal .modal-contentBox .form-buttonBox {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px 0 30px 0;
+}
+.signIn-modal .modal-contentBox .form-buttonBox .modal-signUp {
+  background-color: inherit;
+  border: none;
+  color: rgba(255, 255, 255, 1);
+}
+
+.signIn-modal .modal-contentBox .form-buttonBox .modal-signIn {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(15, 247, 240, 0.4);
+  color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  padding: 10px 40px;
+}
+
+.signIn-modal .modal-contentBox .modal-footer {
+  width: 100%;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+/* modal end */
+
 /* header responsive start */
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 635px) {
   header .container .header-container .nav-menu {
     padding-top: 0;
   }
@@ -389,13 +549,14 @@ body.active-modal .signIn-modal {
     width: 200px;
     height: 100vh;
     display: block !important;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: auto;
     padding-top: 30px;
     border: none;
     border-radius: 0;
     padding-left: 30px;
+    z-index: 10;
   }
   header
     .container
@@ -418,7 +579,7 @@ body.active-modal .signIn-modal {
     flex-direction: column;
     justify-content: stretch;
     padding-top: 40px;
-    min-height: 500px;
+    min-height: 550px;
   }
   header
     .container
@@ -428,7 +589,60 @@ body.active-modal .signIn-modal {
     .active-nav
     .nav-list
     .dropdown-menu {
-    justify-self: flex-end;
+    position: absolute;
+    bottom: 0;
+  }
+  header
+    .container
+    .header-container
+    .nav-menu
+    .left-items
+    .active-nav
+    .nav-list
+    .dropdown-menu
+    ul {
+    bottom: 23px;
+    margin-left: -5px;
   }
 }
 /* header responsive end */
+/* section responsive */
+
+@media screen and (max-width: 400px) {
+  #music-section .container .music-container .music-card {
+    transition: 0s;
+    width: 220px;
+  }
+  #music-section .container .music-container .music-card:hover {
+    width: 222px !important;
+    transform: scale(1);
+
+  }
+  #music-section .container .music-container .music-card .card-img img {
+    width: 220px;
+  }
+}
+
+/* scroll style */
+::-webkit-scrollbar {
+  width: 10px;
+  margin-top: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    183.12deg,
+    rgba(12, 249, 240, 0.5) -35.03%,
+    rgba(214, 134, 255, 0.5) 119.79%
+  );
+  border-radius: 15px;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(21, 15, 24, 0.5) 119.79%;
+}
